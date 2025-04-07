@@ -1,0 +1,28 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "KEYVAULT_NAME": "your-keyvault-name",
+    "LOG_ANALYTICS_WORKSPACE_ID": "your-workspace-id",
+    "LOG_ANALYTICS_ADDITIONAL_WORKSPACE_IDS": "[\"additional-workspace-id-1\", \"additional-workspace-id-2\"]",
+    "SPN_CLIENT_ID_SECRET_NAME": "loganalytics-spn-client-id",
+    "SPN_CLIENT_SECRET_SECRET_NAME": "loganalytics-spn-client-secret",
+    "SPN_TENANT_ID_SECRET_NAME": "loganalytics-spn-tenant-id",
+    "STORAGE_ACCOUNT_NAME": "yourstorageaccount",
+    "STORAGE_CONTAINER_NAME": "loganalytics-data",
+    "STAGING_DIRECTORY": "staging",
+    "FINAL_DIRECTORY": "processed",
+    "USE_SPN_FOR_STORAGE": "false",
+    "USE_ENV_VARS_FOR_SECRETS": "true",
+    "QUERIES_CONFIG": "[{\"query\": \"AzureActivity | where TimeGenerated >= ago(1d)\", \"output_pattern\": \"azure_activity\", \"days\": 1, \"file_format\": \"parquet\", \"workspace_ids\": [\"specific-workspace-id-1\", \"specific-workspace-id-2\"]}, {\"query\": \"SecurityEvent | where TimeGenerated >= ago(1d)\", \"output_pattern\": \"security_events\", \"days\": 1, \"file_format\": \"parquet\"}]",
+    "MAX_ROWS_PER_FILE": "100000",
+    "TIMER_SCHEDULE": "0 0 * * * *",
+    "CHUNK_SIZE": "100000",
+    "ROW_PROCESS_SIZE": "10000",
+    "DELETE_STAGING_FILES": "false",
+    "SPN_CLIENT_ID": "your-spn-client-id-for-local-dev",
+    "SPN_CLIENT_SECRET": "your-spn-client-secret-for-local-dev",
+    "SPN_TENANT_ID": "your-spn-tenant-id-for-local-dev"
+  }
+} 

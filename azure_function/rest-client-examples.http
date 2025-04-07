@@ -1,0 +1,68 @@
+# REST Client Examples for Log Analytics to ADLS Gen2 Function
+# Install the "REST Client" extension in VS Code to use these examples
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+# Set variables for your environment
+@functionAppUrl = http://localhost:7071
+@functionKey = your-function-key-here
+
+### Run all queries
+POST {{functionAppUrl}}/api/log-analytics-to-adls
+Content-Type: application/json
+x-functions-key: {{functionKey}}
+
+{
+}
+
+### Run a specific query by pattern (AzureActivity)
+POST {{functionAppUrl}}/api/log-analytics-to-adls
+Content-Type: application/json
+x-functions-key: {{functionKey}}
+
+{
+    "query_pattern": "azure_activity"
+}
+
+### Run a specific query by pattern (SecurityEvents)
+POST {{functionAppUrl}}/api/log-analytics-to-adls
+Content-Type: application/json
+x-functions-key: {{functionKey}}
+
+{
+    "query_pattern": "security_events"
+}
+
+### Run a specific query using query parameters in URL
+GET {{functionAppUrl}}/api/log-analytics-to-adls?query_pattern=azure_activity
+x-functions-key: {{functionKey}}
+
+### Test with a non-existent query pattern (should return error)
+POST {{functionAppUrl}}/api/log-analytics-to-adls
+Content-Type: application/json
+x-functions-key: {{functionKey}}
+
+{
+    "query_pattern": "non_existent_pattern"
+}
+
+# ===== Production Testing =====
+# Replace with your actual Azure Function URL
+@prodFunctionUrl = https://your-function-app.azurewebsites.net
+@prodFunctionKey = your-production-function-key-here
+
+### Run all queries in production
+POST {{prodFunctionUrl}}/api/log-analytics-to-adls
+Content-Type: application/json
+x-functions-key: {{prodFunctionKey}}
+
+{
+}
+
+### Run a specific query in production
+POST {{prodFunctionUrl}}/api/log-analytics-to-adls
+Content-Type: application/json
+x-functions-key: {{prodFunctionKey}}
+
+{
+    "query_pattern": "azure_activity"
+} 
