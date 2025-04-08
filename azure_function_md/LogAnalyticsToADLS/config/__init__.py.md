@@ -1,0 +1,8 @@
+# __init__.py
+
+```python
+# Config package initialization
+from .settings import get_settings, Settings
+
+__all__ = ["get_settings", "Settings"] 
+```
